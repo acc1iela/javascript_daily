@@ -10,9 +10,8 @@ for (let file of files) {
     filePaths.push(filePath);
   }
 }
-*/
 
-const files = ['foo.txt', '.bar', ' ', 'baz.foo'];
+const files = ['foo.txt', '.bar', '   ', 'baz.foo'];
 const filePaths = files.reduce((acc, file) => {
   const fileName = file.trim();
   if (fileName) {
@@ -21,3 +20,13 @@ const filePaths = files.reduce((acc, file) => {
   }
   return acc;
 }, []);
+
+*/
+
+const files = ['foo.txt', '.bar', '   ', 'baz.foo'];
+const filePaths = files
+  .map((file) => file.trim())
+  .filter(Boolean)
+  .map((fileName) => `~/cool_app/${fileName}`);
+
+console.log(filePaths);
